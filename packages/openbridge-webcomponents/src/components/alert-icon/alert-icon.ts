@@ -1,12 +1,15 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
-import {svg14AlarmSilencedA} from './icons/icon-14-alarm-silenced-a';
-import {svg14AlarmSilencedB} from './icons/icon-14-alarm-silenced-b';
-import {svg14AlarmUnackA} from './icons/icon-14-alarm-unack-a';
-import {svg14AlarmUnackB} from './icons/icon-14-alarm-unack-b';
-import {svg14WarningUnackA} from './icons/icon-14-warning-unack-a';
-import {svg14WarningUnackB} from './icons/icon-14-warning-unack-b';
+
+const SvgFile = "/icons-14.svg";
+
+const svg14AlarmSilencedA = "icon-14-alarm-silenced-a";
+const svg14AlarmSilencedB = "icon-14-alarm-silenced-b";
+const svg14AlarmUnackA = "icon-14-alarm-unack-a";
+const svg14AlarmUnackB = "icon-14-alarm-unack-b";
+const svg14WarningUnackA = "icon-14-warning-unack-a";
+const svg14WarningUnackB = "icon-14-warning-unack-b";
 
 const mapping = {
   'alarm-silenced': {a: svg14AlarmSilencedA, b: svg14AlarmSilencedB},
@@ -38,8 +41,8 @@ export class ObcAlertIcon extends LitElement {
           'show-b': !this.blinkValue,
         })}
       >
-        <span class="a">${icons.a}</span>
-        <span class="b">${icons.b}</span>
+        <span class="a"><svg><use href={"${SvgFile}#${icons.a}"}/></svg></span>
+        <span class="b"><svg><use href={"${SvgFile}#${icons.b}"}/></svg></span>
       </div>
     `;
   }
