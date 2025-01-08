@@ -41,8 +41,8 @@ export class ObcAlertIcon extends LitElement {
           'show-b': !this.blinkValue,
         })}
       >
-        <span class="a"><svg><use href={"${SvgFile}#${icons.a}"}/></svg></span>
-        <span class="b"><svg><use href={"${SvgFile}#${icons.b}"}/></svg></span>
+        <span class="a"><svg><use href=${SvgFile}#${icons.a}/></svg></span>
+        <span class="b"><svg><use href=${SvgFile}#${icons.b}/></svg></span>
       </div>
     `;
   }
