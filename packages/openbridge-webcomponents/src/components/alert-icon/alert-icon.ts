@@ -33,7 +33,7 @@ export class ObcAlertIcon extends LitElement {
   override render() {
     const icons = mapping[this.name];
     return html`
-      <svg><use href=${SvgFile}#${this.blinkValue ? icons.a : icons.b}/></svg>
+      <svg width="100%" height="100%"><use href=${SvgFile}#${this.blinkValue ? icons.a : icons.b}/></svg>
     `;
   }
 }
