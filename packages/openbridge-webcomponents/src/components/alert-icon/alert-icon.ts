@@ -1,6 +1,5 @@
-import {LitElement, html, css} from 'lit';
+import {LitElement, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
 
 const SvgFile = "/icons-14.svg";
 
@@ -34,41 +33,9 @@ export class ObcAlertIcon extends LitElement {
   override render() {
     const icons = mapping[this.name];
     return html`
-      <div
-        class=${classMap({
-          wrapper: true,
-          'show-a': this.blinkValue,
-          'show-b': !this.blinkValue,
-        })}
-      >
-        <span class="a"><svg><use href=${SvgFile}#${icons.a}/></svg></span>
-        <span class="b"><svg><use href=${SvgFile}#${icons.b}/></svg></span>
-      </div>
+      <svg><use href=${SvgFile}#${this.blinkValue ? icons.a : icons.b}/></svg>
     `;
   }
-
-  static override styles = css`
-    .wrapper {
-      height: 100%;
-      width: 100%;
-    }
-    .wrapper * {
-      height: 100%;
-      width: 100%;
-    }
-    .a,
-    .b {
-      display: none;
-    }
-
-    .show-a .a {
-      display: revert;
-    }
-
-    .show-b .b {
-      display: revert;
-    }
-  `;
 }
 
 declare global {
